@@ -7,195 +7,91 @@
 
 <style>
 :root{
-  --bg-dark:#0b0b0b;
+  --bg-dark:#0c0c0c;
   --bg-light:#f6f6f6;
   --gold:#c9a24d;
   --gold-soft:#e6c97a;
-  --text-dark:#111;
   --text-light:#fff;
+  --text-dark:#111;
+  --gray:#aaa;
 }
 
-*{
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont;
-}
+*{box-sizing:border-box;font-family:system-ui,-apple-system}
+body{margin:0;background:var(--bg-dark);color:var(--text-light)}
 
-body{
-  margin:0;
-  background:var(--bg-dark);
-  color:var(--text-light);
-  overflow-x:hidden;
-}
+section{padding:90px 20px;text-align:center}
+h1,h2,h3{margin:0 0 15px}
+p{margin:0 auto 20px;max-width:750px}
 
-/* ===== HERO ===== */
+/* HERO */
 .hero{
   min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  padding:40px 20px;
-  background:
-    radial-gradient(circle at top, rgba(201,162,77,.15), transparent 60%),
-    linear-gradient(135deg,#0b0b0b,#151515);
+  background:linear-gradient(135deg,#0c0c0c,#1a1a1a);
 }
+.hero-inner{animation:fadeUp 1.2s ease}
+.hero h1{font-size:50px;color:var(--gold)}
+.hero p{font-size:20px;color:#ddd}
 
-.hero-content{
-  animation:fadeUp 1.2s ease forwards;
-}
+/* LOGO */
+.logo{width:90px;margin:0 auto 25px}
 
-.logo{
-  width:120px;
-  margin:0 auto 25px;
-  animation:logoDrop 1.2s ease forwards;
-  filter:drop-shadow(0 0 25px rgba(201,162,77,.35));
-}
-
-.hero h1{
-  font-size:48px;
-  color:var(--gold);
-  margin-bottom:15px;
-  opacity:0;
-  animation:fadeUp .9s ease forwards;
-  animation-delay:.3s;
-}
-
-.hero p{
-  font-size:20px;
-  max-width:600px;
-  margin:auto;
-  color:#ddd;
-  opacity:0;
-  animation:fadeUp .9s ease forwards;
-  animation-delay:.5s;
-}
-
+/* BUTTON */
 .btn{
-  display:inline-block;
-  margin-top:35px;
-  padding:16px 40px;
+  padding:16px 38px;
+  border:none;
+  border-radius:40px;
   background:var(--gold);
   color:#000;
-  text-decoration:none;
   font-size:18px;
-  border-radius:40px;
-  font-weight:600;
-  box-shadow:0 15px 40px rgba(201,162,77,.35);
-  transition:.3s ease;
-  opacity:0;
-  animation:fadeUp .9s ease forwards;
-  animation-delay:.7s;
+  cursor:pointer;
+  transition:.3s;
 }
+.btn:hover{background:var(--gold-soft);transform:translateY(-3px)}
 
-.btn:hover{
-  background:var(--gold-soft);
-  transform:translateY(-4px);
-  box-shadow:0 20px 55px rgba(201,162,77,.55);
-}
-
-/* ===== SECTIONS ===== */
-section{
-  padding:90px 20px;
-  background:var(--bg-light);
-  color:var(--text-dark);
-  text-align:center;
-}
-
-section h2{
-  font-size:36px;
-  margin-bottom:20px;
-}
-
-section p{
-  max-width:700px;
-  margin:auto;
-  font-size:18px;
-  color:#444;
-}
-
-/* ===== FEATURES ===== */
-.features{
+/* FEATURES */
+.features,.pricing,.steps,.testimonials{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
   margin-top:50px;
 }
-
 .card{
   background:#fff;
+  color:#000;
   padding:35px;
   border-radius:22px;
-  box-shadow:0 25px 45px rgba(0,0,0,.08);
-  transition:.3s ease;
+  box-shadow:0 25px 50px rgba(0,0,0,.1);
+  animation:fadeUp 1s ease;
 }
 
-.card:hover{
-  transform:translateY(-10px);
-}
+/* DARK BLOCK */
+.dark{background:#111;color:#fff}
+.dark .card{background:#1a1a1a;color:#fff}
 
-.card h3{
-  color:var(--gold);
-  margin-bottom:10px;
-}
+/* PRICE */
+.price{font-size:42px;color:var(--gold)}
+.currency{font-size:22px}
 
-/* ===== STEPS ===== */
-.steps{
+/* COUNTERS */
+.counters{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:30px;
-  margin-top:50px;
+  margin-top:40px;
 }
+.counter span{font-size:42px;color:var(--gold)}
 
-.step{
-  background:#111;
-  color:#fff;
-  padding:35px;
-  border-radius:20px;
-}
+/* FOOTER */
+footer{background:#000;color:var(--gray);padding:30px;text-align:center}
 
-.step span{
-  font-size:42px;
-  color:var(--gold);
-  display:block;
-  margin-bottom:10px;
-}
-
-/* ===== FOOTER ===== */
-footer{
-  background:#000;
-  color:#999;
-  text-align:center;
-  padding:30px;
-}
-
-/* ===== WHATSAPP FLOAT ===== */
-.whatsapp{
-  position:fixed;
-  bottom:20px;
-  right:20px;
-  background:#25D366;
-  color:#fff;
-  padding:14px 22px;
-  border-radius:50px;
-  text-decoration:none;
-  font-weight:600;
-  box-shadow:0 15px 35px rgba(0,0,0,.3);
-  transition:.3s ease;
-  z-index:999;
-}
-
-.whatsapp:hover{
-  transform:scale(1.05);
-}
-
-/* ===== ANIMATIONS ===== */
+/* ANIM */
+.fade{opacity:0;transform:translateY(40px);transition:1s}
+.fade.show{opacity:1;transform:none}
 @keyframes fadeUp{
-  from{opacity:0;transform:translateY(25px)}
-  to{opacity:1;transform:none}
-}
-
-@keyframes logoDrop{
-  from{opacity:0;transform:translateY(-30px)}
+  from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:none}
 }
 </style>
@@ -205,70 +101,108 @@ footer{
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-content">
-
+  <div class="hero-inner">
     <!-- SVG LOGO -->
-    <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a24d" stroke-width="8"/>
-      <text x="50%" y="55%" text-anchor="middle"
-        fill="#c9a24d"
-        font-size="64"
-        font-weight="700"
-        font-family="system-ui">
-        FQ
-      </text>
+    <svg class="logo" viewBox="0 0 100 100" fill="none">
+      <circle cx="50" cy="50" r="48" stroke="#c9a24d" stroke-width="4"/>
+      <text x="50%" y="58%" text-anchor="middle"
+            fill="#c9a24d" font-size="38" font-weight="700">FQ</text>
     </svg>
 
     <h1>FatoraQ</h1>
-    <p>منصة سعودية فاخرة لإدارة الفواتير والاشتراكات باحترافية وذكاء</p>
-
-    <a class="btn"
-       href="https://api.whatsapp.com/send?phone=966538126669&text=مرحبا،%20حاب%20أعرف%20أكثر%20عن%20FatoraQ">
-      ابدأ مجانًا
-    </a>
+    <p>منصة سعودية فاخرة لإدارة الفواتير والاشتراكات</p>
   </div>
 </div>
 
 <!-- WHY -->
-<section>
-  <h2>ليش FatoraQ؟</h2>
-  <p>لأن وقتك أغلى من أنك تضيعَه في الفواتير، خلّك مركز على نمو مشروعك بثقة.</p>
-
-  <div class="features">
-    <div class="card">
-      <h3>إدارة ذكية</h3>
-      <p>كل فواتيرك واشتراكاتك بمكان واحد.</p>
-    </div>
-    <div class="card">
-      <h3>تنبيهات تلقائية</h3>
-      <p>لا نسيان بعد اليوم.</p>
-    </div>
-    <div class="card">
-      <h3>مناسب للجميع</h3>
-      <p>أفراد، متاجر، شركات.</p>
-    </div>
-  </div>
+<section class="fade">
+<h2>ليش FatoraQ؟</h2>
+<div class="features">
+  <div class="card">إدارة ذكية للفواتير</div>
+  <div class="card">تنبيهات تلقائية</div>
+  <div class="card">مناسب للأفراد والشركات</div>
+</div>
 </section>
 
-<!-- HOW -->
-<section style="background:#ededed">
-  <h2>كيف يعمل؟</h2>
-  <div class="steps">
-    <div class="step"><span>1</span>سجل معنا</div>
-    <div class="step"><span>2</span>أضف فواتيرك</div>
-    <div class="step"><span>3</span>خلك مرتاح</div>
+<!-- COUNTERS -->
+<section class="dark fade">
+<h2>أرقامنا</h2>
+<div class="counters">
+  <div class="counter"><span data-count="1200">0</span><br>فاتورة</div>
+  <div class="counter"><span data-count="340">0</span><br>عميل</div>
+  <div class="counter"><span data-count="99">0</span>% رضا</div>
+</div>
+</section>
+
+<!-- PRICING -->
+<section class="fade">
+<h2>الباقات</h2>
+<div class="pricing">
+  <div class="card">
+    <h3>الأساسية</h3>
+    <div class="price">99 <span class="currency">﷼</span></div>
+    <button class="btn" onclick="checkout('الأساسية','99')">اشترك</button>
   </div>
+  <div class="card">
+    <h3>الاحترافية</h3>
+    <div class="price">199 <span class="currency">﷼</span></div>
+    <button class="btn" onclick="checkout('الاحترافية','199')">اشترك</button>
+  </div>
+  <div class="card">
+    <h3>الشركات</h3>
+    <div class="price">399 <span class="currency">﷼</span></div>
+    <button class="btn" onclick="checkout('الشركات','399')">اشترك</button>
+  </div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="dark fade">
+<h2>آراء العملاء</h2>
+<div class="testimonials">
+  <div class="card">"فخم وسهّل علينا المحاسبة"</div>
+  <div class="card">"أفضل منصة فواتير استخدمتها"</div>
+  <div class="card">"احترافي ويليق بالسوق السعودي"</div>
+</div>
 </section>
 
 <footer>
 © 2026 FatoraQ – جميع الحقوق محفوظة
 </footer>
 
-<!-- WhatsApp -->
-<a class="whatsapp"
-   href="https://api.whatsapp.com/send?phone=966538126669&text=أبغى%20أبدأ%20مع%20FatoraQ">
-   واتساب الآن
-</a>
+<script>
+/* COUNTERS */
+document.querySelectorAll('[data-count]').forEach(el=>{
+  let target=+el.dataset.count,c=0;
+  let i=setInterval(()=>{
+    c+=Math.ceil(target/50);
+    if(c>=target){c=target;clearInterval(i)}
+    el.textContent=c;
+  },40);
+});
+
+/* FADE ON SCROLL */
+const fades=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+  fades.forEach(f=>{
+    if(f.getBoundingClientRect().top<window.innerHeight-100)
+      f.classList.add('show');
+  });
+});
+
+/* CHECKOUT PLACEHOLDER */
+function checkout(plan,price){
+  const msg=`مرحبا 👋
+أبغى أشترك في FatoraQ
+📦 الباقة: ${plan}
+💰 السعر: ${price} ريال
+الدفع: STC Pay / Stripe`;
+  window.open(
+    "https://wa.me/966538126669?text="+encodeURIComponent(msg),
+    "_blank"
+  );
+}
+</script>
 
 </body>
 </html>
