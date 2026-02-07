@@ -11,9 +11,8 @@
   --bg-light: #f6f6f6;
   --gold: #c9a24d;
   --gold-soft: #e6c97a;
-  --text-dark: #111;
   --text-light: #fff;
-  --gray: #999;
+  --text-dark: #111;
 }
 
 * {
@@ -25,27 +24,9 @@ body {
   margin: 0;
   background: var(--bg-dark);
   color: var(--text-light);
-  overflow-x: hidden;
 }
 
-/* ===== ANIMATION ===== */
-.fade-up {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 1s ease forwards;
-}
-
-.fade-up.delay { animation-delay: .3s; }
-.fade-up.delay2 { animation-delay: .6s; }
-
-@keyframes fadeUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== HERO ===== */
+/* HERO */
 .hero {
   min-height: 100vh;
   background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
@@ -54,23 +35,45 @@ body {
   justify-content: center;
   text-align: center;
   padding: 40px 20px;
+  animation: fadeIn 1.2s ease;
 }
 
-.hero-content {
-  max-width: 720px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ===== BUTTON ===== */
+/* LOGO */
+.logo {
+  width: 120px;
+  margin-bottom: 25px;
+}
+
+/* TEXT */
+.hero h1 {
+  font-size: 48px;
+  margin-bottom: 15px;
+  color: var(--gold);
+}
+
+.hero p {
+  font-size: 20px;
+  color: #ddd;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* BUTTON */
 .btn {
   display: inline-block;
   margin-top: 35px;
-  padding: 16px 40px;
+  padding: 16px 38px;
   background: var(--gold);
   color: #000;
   text-decoration: none;
   font-size: 18px;
   border-radius: 40px;
-  transition: .3s ease;
+  transition: 0.3s ease;
 }
 
 .btn:hover {
@@ -78,7 +81,7 @@ body {
   transform: translateY(-3px);
 }
 
-/* ===== SECTIONS ===== */
+/* SECTIONS */
 section {
   padding: 90px 20px;
   background: var(--bg-light);
@@ -92,62 +95,16 @@ section h2 {
 }
 
 section p {
-  max-width: 720px;
+  max-width: 700px;
   margin: auto;
   font-size: 18px;
   color: #444;
 }
 
-/* ===== FEATURES ===== */
-.features {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 25px;
-  margin-top: 50px;
-}
-
-.card {
-  background: #fff;
-  padding: 32px;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-  transition: .3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-}
-
-.card h3 {
-  color: var(--gold);
-  margin-bottom: 10px;
-}
-
-/* ===== HOW ===== */
-.steps {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  margin-top: 40px;
-}
-
-.step {
-  background: #111;
-  color: white;
-  padding: 30px;
-  border-radius: 18px;
-}
-
-.step span {
-  display: block;
-  font-size: 40px;
-  color: var(--gold);
-}
-
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer {
   background: #000;
-  color: var(--gray);
+  color: #888;
   padding: 30px;
   text-align: center;
 }
@@ -156,88 +113,34 @@ footer {
 
 <body>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <div class="hero">
-  <div class="hero-content">
+  <div>
 
-    <!-- ===== SVG LOGO (FIXED) ===== -->
-    <div class="fade-up">
-      <svg width="230" height="60" viewBox="0 0 230 60"
-           xmlns="http://www.w3.org/2000/svg" role="img" aria-label="FatoraQ logo">
-        <style>
-          .logo-main {
-            fill: #ffffff;
-            font-size: 42px;
-            font-weight: 600;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont;
-            letter-spacing: 1px;
-          }
-          .logo-q {
-            fill: #c9a24d;
-            font-weight: 700;
-          }
-        </style>
+    <!-- INLINE SVG LOGO -->
+    <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a24d" stroke-width="8"/>
+      <text x="50%" y="55%" text-anchor="middle" fill="#c9a24d"
+            font-size="64" font-weight="700" font-family="Arial">FQ</text>
+    </svg>
 
-        <text x="0" y="45" class="logo-main">
-          Fatora<tspan class="logo-q">Q</tspan>
-        </text>
-      </svg>
-    </div>
+    <h1>FatoraQ</h1>
+    <p>منصة سعودية فاخرة لإدارة الفواتير والاشتراكات باحترافية وذكاء</p>
 
-    <h1 class="fade-up delay" style="font-size:22px; color:#ddd; font-weight:400;">
-      منصة سعودية فاخرة لإدارة الفواتير والاشتراكات
-    </h1>
-
-    <p class="fade-up delay2" style="color:#ccc;">
-      نظّم دخلك، راقب التزاماتك، وخلك مركز على نمو مشروعك.
-    </p>
-
-    <a class="btn fade-up delay2"
+    <a class="btn"
        href="https://api.whatsapp.com/send?phone=966538126669&text=مرحبا،%20حاب%20أعرف%20أكثر%20عن%20FatoraQ">
-       ابدأ مجاناً
+      ابدأ مجاناً
     </a>
 
   </div>
 </div>
 
-<!-- ===== WHY ===== -->
 <section>
   <h2>ليش FatoraQ؟</h2>
   <p>
-    لأن الاحتراف يبدأ من التنظيم.
-    FatoraQ صُمم لرواد الأعمال اللي يبغون سيطرة كاملة بدون تعقيد.
+    لأن وقتك أغلى من أنك تضيعَه في الفواتير.
+    نخليك مركز على نمو مشروعك بثقة.
   </p>
-
-  <div class="features">
-    <div class="card">
-      <h3>إدارة ذكية</h3>
-      <p>كل فواتيرك واشتراكاتك في مكان واحد.</p>
-    </div>
-    <div class="card">
-      <h3>تنبيهات تلقائية</h3>
-      <p>لا تفوّت أي موعد سداد.</p>
-    </div>
-    <div class="card">
-      <h3>مظهر احترافي</h3>
-      <p>واجهة فخمة تليق بمشروعك.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ===== HOW ===== -->
-<section style="background:#f0f0f0">
-  <h2>كيف يعمل؟</h2>
-
-  <div class="steps">
-    <div class="step"><span>1</span>سجّل</div>
-    <div class="step"><span>2</span>أضف فواتيرك</div>
-    <div class="step"><span>3</span>ارتاح</div>
-  </div>
-
-  <a class="btn" style="margin-top:50px"
-     href="https://api.whatsapp.com/send?phone=966538126669&text=أبغى%20أبدأ%20مع%20FatoraQ">
-     تواصل معنا
-  </a>
 </section>
 
 <footer>
