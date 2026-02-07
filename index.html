@@ -20,8 +20,27 @@
 body{margin:0;background:var(--bg-dark);color:var(--text-light)}
 
 section{padding:90px 20px;text-align:center}
-h1,h2,h3{margin:0 0 15px}
-p{margin:0 auto 20px;max-width:750px}
+h1,h2,h3{margin-bottom:15px}
+p{max-width:750px;margin:0 auto 20px}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  display:flex;
+  justify-content:space-between;
+  padding:15px 30px;
+  background:#000;
+  z-index:999;
+}
+nav button{
+  background:none;
+  border:1px solid var(--gold);
+  color:var(--gold);
+  padding:8px 18px;
+  border-radius:20px;
+  cursor:pointer;
+}
 
 /* HERO */
 .hero{
@@ -32,7 +51,7 @@ p{margin:0 auto 20px;max-width:750px}
   background:linear-gradient(135deg,#0c0c0c,#1a1a1a);
 }
 .hero-inner{animation:fadeUp 1.2s ease}
-.hero h1{font-size:50px;color:var(--gold)}
+.hero h1{font-size:52px;color:var(--gold)}
 .hero p{font-size:20px;color:#ddd}
 
 /* LOGO */
@@ -40,7 +59,7 @@ p{margin:0 auto 20px;max-width:750px}
 
 /* BUTTON */
 .btn{
-  padding:16px 38px;
+  padding:15px 36px;
   border:none;
   border-radius:40px;
   background:var(--gold);
@@ -51,8 +70,8 @@ p{margin:0 auto 20px;max-width:750px}
 }
 .btn:hover{background:var(--gold-soft);transform:translateY(-3px)}
 
-/* FEATURES */
-.features,.pricing,.steps,.testimonials{
+/* GRID */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
@@ -64,10 +83,9 @@ p{margin:0 auto 20px;max-width:750px}
   padding:35px;
   border-radius:22px;
   box-shadow:0 25px 50px rgba(0,0,0,.1);
-  animation:fadeUp 1s ease;
 }
 
-/* DARK BLOCK */
+/* DARK */
 .dark{background:#111;color:#fff}
 .dark .card{background:#1a1a1a;color:#fff}
 
@@ -75,21 +93,24 @@ p{margin:0 auto 20px;max-width:750px}
 .price{font-size:42px;color:var(--gold)}
 .currency{font-size:22px}
 
-/* COUNTERS */
-.counters{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:30px;
-  margin-top:40px;
+/* FORM */
+form{
+  max-width:420px;
+  margin:40px auto 0;
 }
-.counter span{font-size:42px;color:var(--gold)}
+input{
+  width:100%;
+  padding:14px;
+  margin-bottom:15px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+}
 
 /* FOOTER */
 footer{background:#000;color:var(--gray);padding:30px;text-align:center}
 
 /* ANIM */
-.fade{opacity:0;transform:translateY(40px);transition:1s}
-.fade.show{opacity:1;transform:none}
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(40px)}
   to{opacity:1;transform:none}
@@ -99,108 +120,106 @@ footer{background:#000;color:var(--gray);padding:30px;text-align:center}
 
 <body>
 
+<!-- NAV -->
+<nav>
+  <div style="color:var(--gold)">FatoraQ</div>
+  <button onclick="toggleLang()">EN / AR</button>
+</nav>
+
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <!-- SVG LOGO -->
-    <svg class="logo" viewBox="0 0 100 100" fill="none">
-      <circle cx="50" cy="50" r="48" stroke="#c9a24d" stroke-width="4"/>
-      <text x="50%" y="58%" text-anchor="middle"
-            fill="#c9a24d" font-size="38" font-weight="700">FQ</text>
+    <svg class="logo" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="48" stroke="#c9a24d" stroke-width="4" fill="none"/>
+      <text x="50%" y="58%" text-anchor="middle" fill="#c9a24d" font-size="38" font-weight="700">FQ</text>
     </svg>
 
-    <h1>FatoraQ</h1>
-    <p>منصة سعودية فاخرة لإدارة الفواتير والاشتراكات</p>
+    <h1 data-ar="FatoraQ" data-en="FatoraQ">FatoraQ</h1>
+    <p data-ar="منصة سعودية لإدارة الفواتير باحتراف"
+       data-en="Saudi platform for invoice management">
+       منصة سعودية لإدارة الفواتير باحتراف
+    </p>
+
+    <button class="btn" onclick="openRegister()"
+      data-ar="تسجيل"
+      data-en="Register">
+      تسجيل
+    </button>
   </div>
 </div>
-
-<!-- WHY -->
-<section class="fade">
-<h2>ليش FatoraQ؟</h2>
-<div class="features">
-  <div class="card">إدارة ذكية للفواتير</div>
-  <div class="card">تنبيهات تلقائية</div>
-  <div class="card">مناسب للأفراد والشركات</div>
-</div>
-</section>
-
-<!-- COUNTERS -->
-<section class="dark fade">
-<h2>أرقامنا</h2>
-<div class="counters">
-  <div class="counter"><span data-count="1200">0</span><br>فاتورة</div>
-  <div class="counter"><span data-count="340">0</span><br>عميل</div>
-  <div class="counter"><span data-count="99">0</span>% رضا</div>
-</div>
-</section>
 
 <!-- PRICING -->
-<section class="fade">
-<h2>الباقات</h2>
-<div class="pricing">
+<section>
+<h2 data-ar="الباقات" data-en="Pricing">الباقات</h2>
+<div class="grid">
   <div class="card">
-    <h3>الأساسية</h3>
+    <h3>Basic</h3>
     <div class="price">99 <span class="currency">﷼</span></div>
-    <button class="btn" onclick="checkout('الأساسية','99')">اشترك</button>
+    <button class="btn" onclick="checkout('Basic','99')">اشترك</button>
   </div>
   <div class="card">
-    <h3>الاحترافية</h3>
+    <h3>Pro</h3>
     <div class="price">199 <span class="currency">﷼</span></div>
-    <button class="btn" onclick="checkout('الاحترافية','199')">اشترك</button>
+    <button class="btn" onclick="checkout('Pro','199')">اشترك</button>
   </div>
   <div class="card">
-    <h3>الشركات</h3>
+    <h3>Business</h3>
     <div class="price">399 <span class="currency">﷼</span></div>
-    <button class="btn" onclick="checkout('الشركات','399')">اشترك</button>
+    <button class="btn" onclick="checkout('Business','399')">اشترك</button>
   </div>
 </div>
 </section>
 
-<!-- TESTIMONIALS -->
-<section class="dark fade">
-<h2>آراء العملاء</h2>
-<div class="testimonials">
-  <div class="card">"فخم وسهّل علينا المحاسبة"</div>
-  <div class="card">"أفضل منصة فواتير استخدمتها"</div>
-  <div class="card">"احترافي ويليق بالسوق السعودي"</div>
-</div>
+<!-- REGISTER -->
+<section class="dark" id="register">
+<h2 data-ar="إنشاء حساب" data-en="Create Account">إنشاء حساب</h2>
+
+<form>
+  <input type="text" placeholder="الاسم الكامل / Full Name">
+  <input type="email" placeholder="البريد الإلكتروني / Email">
+  <input type="password" placeholder="كلمة المرور / Password">
+  <button class="btn" type="button" onclick="fakePayment()">
+    المتابعة للدفع
+  </button>
+</form>
+
+<p style="color:#aaa;margin-top:15px">
+Stripe / STC Pay (سيتم الربط الحقيقي لاحقًا)
+</p>
 </section>
 
 <footer>
-© 2026 FatoraQ – جميع الحقوق محفوظة
+© 2026 FatoraQ – All Rights Reserved
 </footer>
 
 <script>
-/* COUNTERS */
-document.querySelectorAll('[data-count]').forEach(el=>{
-  let target=+el.dataset.count,c=0;
-  let i=setInterval(()=>{
-    c+=Math.ceil(target/50);
-    if(c>=target){c=target;clearInterval(i)}
-    el.textContent=c;
-  },40);
-});
-
-/* FADE ON SCROLL */
-const fades=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-  fades.forEach(f=>{
-    if(f.getBoundingClientRect().top<window.innerHeight-100)
-      f.classList.add('show');
+let lang="ar";
+function toggleLang(){
+  lang=lang==="ar"?"en":"ar";
+  document.documentElement.lang=lang;
+  document.documentElement.dir=lang==="ar"?"rtl":"ltr";
+  document.querySelectorAll("[data-ar]").forEach(el=>{
+    el.textContent=el.dataset[lang];
   });
-});
+}
 
-/* CHECKOUT PLACEHOLDER */
 function checkout(plan,price){
-  const msg=`مرحبا 👋
-أبغى أشترك في FatoraQ
-📦 الباقة: ${plan}
-💰 السعر: ${price} ريال
-الدفع: STC Pay / Stripe`;
+  const msg=`Hello 👋
+Subscription request
+Plan: ${plan}
+Price: ${price} SAR`;
   window.open(
     "https://wa.me/966538126669?text="+encodeURIComponent(msg),
     "_blank"
   );
+}
+
+function openRegister(){
+  document.getElementById("register").scrollIntoView({behavior:"smooth"});
+}
+
+function fakePayment(){
+  alert("بوابة الدفع جاهزة – سيتم ربط Stripe / STC Pay قريبًا");
 }
 </script>
 
