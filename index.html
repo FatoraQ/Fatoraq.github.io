@@ -6,107 +6,197 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root {
-  --bg-dark: #0f0f0f;
-  --bg-light: #f6f6f6;
-  --gold: #c9a24d;
-  --gold-soft: #e6c97a;
-  --text-light: #fff;
-  --text-dark: #111;
+:root{
+  --bg-dark:#0b0b0b;
+  --bg-light:#f6f6f6;
+  --gold:#c9a24d;
+  --gold-soft:#e6c97a;
+  --text-dark:#111;
+  --text-light:#fff;
 }
 
-* {
-  box-sizing: border-box;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+*{
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont;
 }
 
-body {
-  margin: 0;
-  background: var(--bg-dark);
-  color: var(--text-light);
+body{
+  margin:0;
+  background:var(--bg-dark);
+  color:var(--text-light);
+  overflow-x:hidden;
 }
 
-/* HERO */
-.hero {
-  min-height: 100vh;
-  background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 20px;
-  animation: fadeIn 1.2s ease;
+/* ===== HERO ===== */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+  background:
+    radial-gradient(circle at top, rgba(201,162,77,.15), transparent 60%),
+    linear-gradient(135deg,#0b0b0b,#151515);
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+.hero-content{
+  animation:fadeUp 1.2s ease forwards;
 }
 
-/* LOGO */
-.logo {
-  width: 120px;
-  margin-bottom: 25px;
+.logo{
+  width:120px;
+  margin:0 auto 25px;
+  animation:logoDrop 1.2s ease forwards;
+  filter:drop-shadow(0 0 25px rgba(201,162,77,.35));
 }
 
-/* TEXT */
-.hero h1 {
-  font-size: 48px;
-  margin-bottom: 15px;
-  color: var(--gold);
+.hero h1{
+  font-size:48px;
+  color:var(--gold);
+  margin-bottom:15px;
+  opacity:0;
+  animation:fadeUp .9s ease forwards;
+  animation-delay:.3s;
 }
 
-.hero p {
-  font-size: 20px;
-  color: #ddd;
-  max-width: 600px;
-  margin: auto;
+.hero p{
+  font-size:20px;
+  max-width:600px;
+  margin:auto;
+  color:#ddd;
+  opacity:0;
+  animation:fadeUp .9s ease forwards;
+  animation-delay:.5s;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 35px;
-  padding: 16px 38px;
-  background: var(--gold);
-  color: #000;
-  text-decoration: none;
-  font-size: 18px;
-  border-radius: 40px;
-  transition: 0.3s ease;
+.btn{
+  display:inline-block;
+  margin-top:35px;
+  padding:16px 40px;
+  background:var(--gold);
+  color:#000;
+  text-decoration:none;
+  font-size:18px;
+  border-radius:40px;
+  font-weight:600;
+  box-shadow:0 15px 40px rgba(201,162,77,.35);
+  transition:.3s ease;
+  opacity:0;
+  animation:fadeUp .9s ease forwards;
+  animation-delay:.7s;
 }
 
-.btn:hover {
-  background: var(--gold-soft);
-  transform: translateY(-3px);
+.btn:hover{
+  background:var(--gold-soft);
+  transform:translateY(-4px);
+  box-shadow:0 20px 55px rgba(201,162,77,.55);
 }
 
-/* SECTIONS */
-section {
-  padding: 90px 20px;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  text-align: center;
+/* ===== SECTIONS ===== */
+section{
+  padding:90px 20px;
+  background:var(--bg-light);
+  color:var(--text-dark);
+  text-align:center;
 }
 
-section h2 {
-  font-size: 36px;
-  margin-bottom: 20px;
+section h2{
+  font-size:36px;
+  margin-bottom:20px;
 }
 
-section p {
-  max-width: 700px;
-  margin: auto;
-  font-size: 18px;
-  color: #444;
+section p{
+  max-width:700px;
+  margin:auto;
+  font-size:18px;
+  color:#444;
 }
 
-/* FOOTER */
-footer {
-  background: #000;
-  color: #888;
-  padding: 30px;
-  text-align: center;
+/* ===== FEATURES ===== */
+.features{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+
+.card{
+  background:#fff;
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 25px 45px rgba(0,0,0,.08);
+  transition:.3s ease;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+}
+
+.card h3{
+  color:var(--gold);
+  margin-bottom:10px;
+}
+
+/* ===== STEPS ===== */
+.steps{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+
+.step{
+  background:#111;
+  color:#fff;
+  padding:35px;
+  border-radius:20px;
+}
+
+.step span{
+  font-size:42px;
+  color:var(--gold);
+  display:block;
+  margin-bottom:10px;
+}
+
+/* ===== FOOTER ===== */
+footer{
+  background:#000;
+  color:#999;
+  text-align:center;
+  padding:30px;
+}
+
+/* ===== WHATSAPP FLOAT ===== */
+.whatsapp{
+  position:fixed;
+  bottom:20px;
+  right:20px;
+  background:#25D366;
+  color:#fff;
+  padding:14px 22px;
+  border-radius:50px;
+  text-decoration:none;
+  font-weight:600;
+  box-shadow:0 15px 35px rgba(0,0,0,.3);
+  transition:.3s ease;
+  z-index:999;
+}
+
+.whatsapp:hover{
+  transform:scale(1.05);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(25px)}
+  to{opacity:1;transform:none}
+}
+
+@keyframes logoDrop{
+  from{opacity:0;transform:translateY(-30px)}
+  to{opacity:1;transform:none}
 }
 </style>
 </head>
@@ -115,13 +205,18 @@ footer {
 
 <!-- HERO -->
 <div class="hero">
-  <div>
+  <div class="hero-content">
 
-    <!-- INLINE SVG LOGO -->
+    <!-- SVG LOGO -->
     <svg class="logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
       <circle cx="100" cy="100" r="90" fill="none" stroke="#c9a24d" stroke-width="8"/>
-      <text x="50%" y="55%" text-anchor="middle" fill="#c9a24d"
-            font-size="64" font-weight="700" font-family="Arial">FQ</text>
+      <text x="50%" y="55%" text-anchor="middle"
+        fill="#c9a24d"
+        font-size="64"
+        font-weight="700"
+        font-family="system-ui">
+        FQ
+      </text>
     </svg>
 
     <h1>FatoraQ</h1>
@@ -129,23 +224,51 @@ footer {
 
     <a class="btn"
        href="https://api.whatsapp.com/send?phone=966538126669&text=مرحبا،%20حاب%20أعرف%20أكثر%20عن%20FatoraQ">
-      ابدأ مجاناً
+      ابدأ مجانًا
     </a>
-
   </div>
 </div>
 
+<!-- WHY -->
 <section>
   <h2>ليش FatoraQ؟</h2>
-  <p>
-    لأن وقتك أغلى من أنك تضيعَه في الفواتير.
-    نخليك مركز على نمو مشروعك بثقة.
-  </p>
+  <p>لأن وقتك أغلى من أنك تضيعَه في الفواتير، خلّك مركز على نمو مشروعك بثقة.</p>
+
+  <div class="features">
+    <div class="card">
+      <h3>إدارة ذكية</h3>
+      <p>كل فواتيرك واشتراكاتك بمكان واحد.</p>
+    </div>
+    <div class="card">
+      <h3>تنبيهات تلقائية</h3>
+      <p>لا نسيان بعد اليوم.</p>
+    </div>
+    <div class="card">
+      <h3>مناسب للجميع</h3>
+      <p>أفراد، متاجر، شركات.</p>
+    </div>
+  </div>
+</section>
+
+<!-- HOW -->
+<section style="background:#ededed">
+  <h2>كيف يعمل؟</h2>
+  <div class="steps">
+    <div class="step"><span>1</span>سجل معنا</div>
+    <div class="step"><span>2</span>أضف فواتيرك</div>
+    <div class="step"><span>3</span>خلك مرتاح</div>
+  </div>
 </section>
 
 <footer>
 © 2026 FatoraQ – جميع الحقوق محفوظة
 </footer>
+
+<!-- WhatsApp -->
+<a class="whatsapp"
+   href="https://api.whatsapp.com/send?phone=966538126669&text=أبغى%20أبدأ%20مع%20FatoraQ">
+   واتساب الآن
+</a>
 
 </body>
 </html>
